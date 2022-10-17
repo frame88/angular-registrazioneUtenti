@@ -1,1 +1,10 @@
-<p>contatti works!</p>
+<div>
+    <h1>Lista Contatti</h1>
+    <div>
+        <div *ngFor="let persona of persone; index as i ">
+            <a routerLink="/contatti/{{ i }}">
+                <p>{{persona.nome}} {{persona.email}}</p>
+            </a>
+        </div>
+    </div>
+</div>
