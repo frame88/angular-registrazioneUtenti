@@ -1,6 +1,5 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgForm, FormControl, FormGroup, Validators } from '@angular/forms';
-
 
 @Component({
   selector: 'app-signup',
@@ -8,15 +7,21 @@ import { NgForm, FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./signup.component.scss']
 })
 export class SignupComponent implements OnInit {
-  // @ViewChild('homeform') homeform!: NgForm
+
+  homeform!: FormGroup;
 
   constructor() { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.homeform = new FormGroup({
+      nome: new FormControl('Luca', Validators.required),
+      email: new FormControl(null, [Validators.required, Validators.email]),
+      colore: new FormControl()
+    })
+  }
 
-  onSubmit(form: NgForm) {
-    console.log(form)
-    // console.log(this.homeform)
+  onSubmit() {
+    console.log(this.homeform);
   }
 
 }
