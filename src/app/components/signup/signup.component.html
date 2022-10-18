@@ -9,6 +9,7 @@
     <mat-label>Email</mat-label>
     <input matInput type="email" name="email" formControlName="email">
   </mat-form-field>
+
   <mat-form-field appearance="fill">
     <mat-label>Colori</mat-label>
     <mat-select name="colore" ngModel>
@@ -20,5 +21,7 @@
     <mat-label>Textarea</mat-label>
     <textarea matInput></textarea>
   </mat-form-field> -->
+
   <button mat-raised-button color="primary" type="submit" [disabled]="!homeform.valid">Invia</button>
+  <button mat-raised-button color="primary" (click)="onPatchPersona()">Modifica</button>
 </form>

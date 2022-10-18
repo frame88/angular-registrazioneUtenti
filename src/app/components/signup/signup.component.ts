@@ -20,19 +20,29 @@ export class SignupComponent implements OnInit {
       colore: new FormControl(),
     });
   }
-  
+
 
   onSubmit() {
     console.log(this.homeform);
 
     this.firebase.insertPersona(
-      'https://corso-angular-69a9b-default-rtdb.europe-west1.firebasedatabase.app/persone.json',
+      'https://corso-angular-yt-default-rtdb.europe-west1.firebasedatabase.app/persone.json',
+
       { nome: this.homeform.value.nome, email: this.homeform.value.email }
     ).subscribe(data => {
       console.log(data);
     });
   }
 
+  onPatchPersona() {
+    this.firebase.patchPersona(
+      'https://corso-angular-yt-default-rtdb.europe-west1.firebasedatabase.app/persone',
+      '-NEeF_YvYMoA0TWdP40o',
+      {nome:'rimpiazzo', email: 'dowhatuwant@fuku.it'}
+    ).subscribe(data => {
+      console.log(data);
+    })
+  }
 }
 
 

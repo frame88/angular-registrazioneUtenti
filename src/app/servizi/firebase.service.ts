@@ -15,4 +15,8 @@ export class FirebaseService {
   getPersone(url: string) {
     return this.http.get(url)
   }
+
+  patchPersona(url: string, id: string, body: {}){
+    return this.http.patch(`${url}/${id}.json`, body)
+  }
 }
