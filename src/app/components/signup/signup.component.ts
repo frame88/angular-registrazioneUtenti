@@ -1,3 +1,4 @@
+import { AuthService } from './../../auth/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { NgForm, FormControl, FormGroup, Validators } from '@angular/forms';
 import { FirebaseService } from 'src/app/servizi/firebase.service';
@@ -11,7 +12,7 @@ export class SignupComponent implements OnInit {
 
   homeform!: FormGroup;
 
-  constructor(private firebase: FirebaseService) { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
     this.homeform = new FormGroup({
@@ -22,27 +23,17 @@ export class SignupComponent implements OnInit {
   }
 
 
-  onSubmit() {
-    console.log(this.homeform);
-
-    this.firebase.insertPersona(
-      'https://corso-angular-yt-default-rtdb.europe-west1.firebasedatabase.app/persone.json',
-
-      { nome: this.homeform.value.nome, email: this.homeform.value.email }
-    ).subscribe(data => {
-      console.log(data);
-    });
-  }
-
-  onPatchPersona() {
-    this.firebase.patchPersona(
-      'https://corso-angular-yt-default-rtdb.europe-west1.firebasedatabase.app/persone',
-      '-NEeF_YvYMoA0TWdP40o',
-      {nome:'rimpiazzo', email: 'dowhatuwant@fuku.it'}
-    ).subscribe(data => {
+  onSubmit(form: NgForm) {
+    console.log(form)
+    const email = form.value.email;
+    const password = form.value.nome;
+    console.log('email: ', email, ',', 'password: ', password);
+    this.authService.signUp({ email: email, password: password, returnSecureToken: true }).subscribe( data=>{
       console.log(data);
     })
+    form.reset();
   }
+
 }
 
 
