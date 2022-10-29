@@ -1,5 +1,6 @@
+
 <div class="container">
-  <h1>Registrati</h1>
+  <h1>Accedi</h1>
 </div>
 
 <div class="container-form">
@@ -14,6 +15,13 @@
       <input matInput type="password" name="nome" ngModel required>
     </mat-form-field>
 
-    <button mat-raised-button color="primary" type="submit" [disabled]="!homeform.valid">Registrati</button>
+    <div class="container-buttons">
+      <button mat-raised-button color="primary" type="submit" [disabled]="!homeform.valid">Entra</button>
+      <!-- <button mat-raised-button (click)="onLogout()">Log Out</button> -->
+
+    </div>
+
   </form>
+
 </div>
+

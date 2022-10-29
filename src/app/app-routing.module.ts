@@ -5,10 +5,12 @@ import { ContattoComponent } from './components/contatto/contatto.component';
 import { ContattiComponent } from './components/contatti/contatti.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { SigninComponent } from './components/signin/signin.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'signup', component: SignupComponent },
+  { path:'signin', component: SigninComponent }, 
   { path: 'contatto', component: ContattoComponent },
   { path: 'contatti', component: ContattiComponent },
   { path: 'notFound', component: NotFoundComponent }

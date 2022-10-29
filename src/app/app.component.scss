@@ -1,0 +1,25 @@
+.container-fluid {
+  background: rgba(255, 170, 0, 0.536);
+  padding-top: 5px;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 0.5em;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0.5em;
+
+  button {
+    padding: 2px 25px;
+    margin: 1em;
+    margin-top: 0;
+    border-radius: 15px;
+    color: white;
+    background-color: rgb(26, 155, 240);
+  }
+}
+
